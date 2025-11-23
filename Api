@@ -1,13 +1,19 @@
 import axios from 'axios';
 
-const apiKey = process.env.API_KEY;
-const apiUrl = `https://api.example.com/data?apiKey=${apiKey}`;
+const apiUrl = 'https://hackathon-api.aheadafrica.org/';
+const apiKey = 'P3KLLW2JQ0:sVcgRNB7mwiZKir7lifSSTcpm2-14S3vZ9xJj_eQX2M';
 
-export const fetchData = async () => {
+export const fetchData = async (endpoint = '') => {
   try {
-    const response = await axios.get(apiUrl);
+    const response = await axios.get(`${apiUrl}${endpoint}`, {
+      headers: {
+        Authorization: `Bearer ${apiKey}`
+      }
+    });
     return response.data;
   } catch (error) {
     console.error(error);
+    // Optionally, rethrow or handle as appropriate
+    // throw error;
   }
 };
