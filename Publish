@@ -1,0 +1,5 @@
+# React Native
+npx react-native run-android
+
+# Android (Gradle)
+./gradlew assembleRelease
